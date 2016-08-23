@@ -65,6 +65,8 @@ angular.module('todo', ['ionic'])
     $ionicSideMenuDelegate.toggleLeft(false);
   };
 
+
+
   // Create our modal
   $ionicModal.fromTemplateUrl('new-task.html', function(modal) {
     $scope.taskModal = modal;
@@ -97,6 +99,14 @@ angular.module('todo', ['ionic'])
 
   $scope.toggleProjects = function() {
     $ionicSideMenuDelegate.toggleLeft();
+  };
+
+  //Deleting the selected project
+  $scope.deleteProject = function(project, index) {
+    $scope.taskModal.remove();
+    // $scope.activeProject = project;
+    // Projects.setLastActiveIndex(index);
+    // $ionicSideMenuDelegate.toggleLeft(false);
   };
 
 

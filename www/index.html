@@ -39,7 +39,7 @@
 
          <!-- Center content -->
 <ion-side-menu-content>
-  <ion-header-bar class="bar-dark">
+  <ion-header-bar class="bar-royal">
     <button class="button button-icon" ng-click="toggleProjects()">
       <i class="icon ion-navicon"></i>
     </button>
@@ -51,8 +51,9 @@
   </ion-header-bar>
   <ion-content scroll="false">
     <ion-list>
-      <ion-item ng-repeat="task in activeProject.tasks">
+      <ion-item ng-repeat="task in activeProject.tasks" class="item-button-right">
         {{task.title}}
+          <button class = "button item-button-right" ng-click = "deleteNewTask(task, $index)"><i class = "icon ion-minus-circled"></i></button>
       </ion-item>
     </ion-list>
   </ion-content>
@@ -69,13 +70,15 @@
     </ion-header-bar>
     <ion-content scroll="false">
       <ion-list>
-        <ion-item ng-repeat="project in projects" ng-click="selectProject(project, $index)" ng-class="{active: activeProject == project}">
+        <ion-item ng-repeat="project in projects" class = "item-button-right" ng-click="selectProject(project, $index)" ng-class="{active: activeProject == project}">
           {{project.title}}
+          <button class="button button-icon ion-minus-circled" ng-click="deleteProject(project, $index)"></button>
         </ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>
 
+        <!-- this is the content where the user can add a task or add description to a task -->
          <script id = "new-task.html" type="text/ng-template">
             <div class = "modal">
 
